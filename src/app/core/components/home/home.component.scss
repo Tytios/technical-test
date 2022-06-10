@@ -1,0 +1,19 @@
+::ng-deep  {
+  .virtual-scroller{
+    .p-virtualscroller-header{
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25rem;
+    }
+
+    .p-virtualscroller-item {
+      text-align: center;
+    }
+  }
+
+  .p-inline-message {
+    width: 90%;
+    border: 2px solid red;
+    margin: 0.5rem auto;
+  }
+}
