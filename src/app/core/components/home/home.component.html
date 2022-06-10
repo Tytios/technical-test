@@ -1,0 +1,26 @@
+<p-virtualScroller [value]="taskItems" scrollHeight="250px" [itemSize]="70" styleClass="virtual-scroller">
+  <ng-template pTemplate="header">
+    <h3>List of things to do :</h3>
+    <div class="p-text-center">
+      <span>Validated</span>
+      <p-knob *ngIf="validatedTask" [(ngModel)]="validatedTask" [size]="50" [readonly]="true" [min]="0"
+        [max]="taskItems.length">
+      </p-knob>
+    </div>
+
+  </ng-template>
+  <ng-template pTemplate="item" let-taskItem>
+    <div class="p-d-flex p-ai-center">
+      <div class="p-col-2">
+        <button pButton pRipple type="button" [label]="taskItem.status ? 'Validated' : 'To do'"
+          [ngClass]="{'p-button-success':taskItem.status , 'p-button-warning': !taskItem.status}"></button>
+      </div>
+      <div class="p-col-10">
+        <p-message [severity]="taskItem.status ? 'success': 'warn'" [text]="taskItem.description"
+          styleClass="p-shadow-1">
+        </p-message>
+      </div>
+    </div>
+
+  </ng-template>
+</p-virtualScroller>
