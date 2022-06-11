@@ -16,6 +16,8 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { KnobModule } from 'primeng/knob';
 import { TagModule } from 'primeng/tag';
+import { CheckboxModule } from 'primeng/checkbox';
+
 
 import { MainContainerComponent } from './core/layouts/main-container/main-container.component';
 import { HeaderComponent } from './core/layouts/header/header.component';
@@ -45,7 +47,8 @@ import { FormsModule } from '@angular/forms';
     MessagesModule,
     MessageModule,
     KnobModule,
-    TagModule
+    TagModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

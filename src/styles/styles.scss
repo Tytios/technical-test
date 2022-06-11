@@ -13,6 +13,10 @@ body,html{
   display: flex;
 }
 
+.p-text-crossout{
+  text-decoration-line: line-through;
+}
+
 .test-bg{
   border: 2px solid red;
 }
