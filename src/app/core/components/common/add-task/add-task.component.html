@@ -1,0 +1,21 @@
+<form [formGroup]="addTaskForm">
+  <div class="p-d-flex p-flex-wrap p-col-12 p-mt-1">
+    <div class="p-lg-3 p-sm-12">
+      <span class="p-float-label">
+        <input id="title" type="text" formControlName="title" pInputText>
+        <label for="title">Title</label>
+      </span>
+      <span *ngIf="formIsSubmitted && myForm.title.hasError('required')" class="p-error">This form field is required</span>
+    </div>
+    <div class="p-lg-9 p-sm-12">
+      <span class="p-float-label">
+        <textarea id="description" formControlName="description" pInputTextarea styleClass="p-col-12"></textarea>
+        <label for="description">Description</label>
+      </span>
+    </div>
+    <div class="p-d-flex p-col-12 p-jc-end">
+      <button pButton pRipple type="button" label="Cancel" class="p-button-secondary" (click)="ref.close()"></button>
+      <button pButton pRipple type="button" label="Add new task" class="p-ml-1" (click)="addTask()"></button>
+    </div>
+  </div>
+</form>
