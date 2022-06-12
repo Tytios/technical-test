@@ -9,30 +9,40 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
     const taskItems = [{
-      id: 12,
-      description: 'Buy an apple',
-      status: true
-    },
-    {
-      id: 13,
-      description: 'Do my technical test',
-      status: false
-    },
-    {
-      id: 14,
-      description: 'Buy flowers for my lover',
-      status: false
-    },
-    {
-      id: 19,
-      description: 'Finish first at every Enlisted battle',
-      status: false
-    },
-    {
-      id: 20,
-      description: 'Be a better man',
-      status: true
-    }
+        id: 12,
+        description: 'Buy an apple',
+        status: true,
+        created_at: new Date('2024-06-05'),
+        updated_at: null,
+      },
+      {
+        id: 13,
+        description: 'Do my technical test',
+        status: false,
+        created_at: new Date('2024-06-07'),
+        updated_at: null,
+      },
+      {
+        id: 14,
+        description: 'Buy flowers for my lover',
+        status: false,
+        created_at: new Date('2024-06-04'),
+        updated_at: null,
+      },
+      {
+        id: 19,
+        description: 'Finish first at every Enlisted battle',
+        status: false,
+        created_at: new Date('2024-06-02'),
+        updated_at: null,
+      },
+      {
+        id: 20,
+        description: 'Be a better man',
+        status: true,
+        created_at: new Date('2024-06-11') ,
+        updated_at: null,
+      }
     ];
     return {
       taskItems
