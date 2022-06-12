@@ -1,0 +1,11 @@
+::ng-deep{
+  .p-message-wrapper{
+    margin: 0.5rem;
+  }
+
+  .p-message.p-message-error{
+    button{
+      display: none;
+    }
+  }
+}
