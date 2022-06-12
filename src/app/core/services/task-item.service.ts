@@ -31,6 +31,13 @@ export class TaskItemService {
       );
   }
 
+  getTaskItem(id: number): Observable<TaskItem> {
+    const url = `${this.taskItemUrl}/${id}`;
+    return this.http.get<TaskItem>(url).pipe(
+      tap(_ => this.messageService.add({severity:'success', summary:`Task with id : ${id} found`, key: 'detailMsg'})
+    ));
+  }
+
   updateTaskItem(taskItem: TaskItem): Observable<any> {
     return this.http.put(this.taskItemUrl, taskItem, this.httpOptions).pipe(
       tap(_ => this.messageService.add({severity:'success', summary:'Task state updated', key: 'homeToast'})),

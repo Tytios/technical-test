@@ -19,19 +19,22 @@ import { TagModule } from 'primeng/tag';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { PanelModule } from 'primeng/panel';
 
 
 import { MainContainerComponent } from './core/layouts/main-container/main-container.component';
 import { HeaderComponent } from './core/layouts/header/header.component';
 import { HomeComponent } from './core/components/home/home.component';
 import { FormsModule } from '@angular/forms';
+import { TodoDetailComponent } from './core/components/todo-detail/todo-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainContainerComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    TodoDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { FormsModule } from '@angular/forms';
     KnobModule,
     TagModule,
     CheckboxModule,
-    ToastModule
+    ToastModule,
+    PanelModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
