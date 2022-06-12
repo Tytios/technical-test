@@ -22,8 +22,14 @@ export class TaskItemService {
   getTaskItems(): Observable<TaskItem[]> {
     return this.http.get<TaskItem[]>(this.taskItemUrl)
       .pipe(
-        tap(_ => this.messageService.add({severity:'success', summary: 'Todo list successfully loaded', key: 'homeMsg'})),
+        tap(_ =>
+          this.messageService.add({severity:'success', summary: 'Todo list successfully loaded', key: 'homeMsg'})
+        ),
         catchError(this.handleHttpError<TaskItem[]>('getTasks', [])),
+        // Sort the list of tasks by task created first
+        map(taskItems=>taskItems.sort(function(a,b){
+          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+        })),
         // Sort the list of tasks by task validated last
         map(taskItems=>taskItems.sort(function(a,b){
           return (a.status === b.status) ? 0 : b.status ? -1 : 1;
@@ -39,9 +45,23 @@ export class TaskItemService {
   }
 
   updateTaskItem(taskItem: TaskItem): Observable<any> {
+    taskItem.updated_at = new Date();
     return this.http.put(this.taskItemUrl, taskItem, this.httpOptions).pipe(
       tap(_ => this.messageService.add({severity:'success', summary:'Task state updated', key: 'homeToast'})),
       catchError(this.handleHttpError<any>('updateTaskItem'))
+    );
+  }
+
+  addTaskItem(taskItem: TaskItem): Observable<TaskItem> {
+    return this.http.post<TaskItem>(this.taskItemUrl, taskItem, this.httpOptions).pipe(
+      tap((newTaskItem: TaskItem) => this.messageService.add({severity:'success', summary: `New Task Added with ID : ${newTaskItem.id}`, key: 'homeToast'}))
+    );
+  }
+
+  deleteTaskItem(id: number): Observable<TaskItem> {
+    const url = `${this.taskItemUrl}/${id}`;
+    return this.http.delete<TaskItem>(url, this.httpOptions).pipe(
+      tap(_ => this.messageService.add({severity:'success', summary:'Task Deleted', key: 'homeToast'})),
     );
   }
 
