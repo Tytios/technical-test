@@ -1,9 +1,0 @@
-<p-messages key="detailMsg"></p-messages>
-<p-panel *ngIf="taskItem" [header]="'Title : '+taskItem.title" data-cy="todoTitle">
-  <h4 class="p-m-0">Description</h4>
-  <p class="p-mt-2" data-cy="todoDescription">
-    {{taskItem.description}}
-  </p>
-</p-panel>
-<p-button pRipple label="Go back" icon="pi pi-arrow-left" (click)="goBack()" styleClass="p-button-sm p-mt-2"></p-button>
-
