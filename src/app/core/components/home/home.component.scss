@@ -28,3 +28,19 @@
 a{
   text-decoration: none;
 }
+
+@media screen and ( min-height: 650px ) {
+  ::ng-deep{
+    .cdk-virtual-scroll-viewport{
+      height: 300px !important;
+    }
+  }
+}
+
+@media screen and ( min-height: 800px ) {
+  ::ng-deep{
+    .cdk-virtual-scroll-viewport{
+      height: 500px !important;
+    }
+  }
+}
